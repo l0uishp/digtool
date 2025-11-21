@@ -13,7 +13,7 @@ class GravatarModule(BaseModule):
             email_hash = hashlib.md5(email_clean.encode()).hexdigest()
             
             # Utiliser d=404 pour obtenir un 404 si pas de Gravatar
-            check_url = f"https://www.gravatar.com/{email_hash}?d=404"
+            check_url = f"https://www.gravatar.com/{email_hash}.json"
             
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", 
@@ -25,7 +25,7 @@ class GravatarModule(BaseModule):
             
             # Code 200 = Gravatar existe
             # Code 404 = Pas de Gravatar
-            if response.status_code in (200, 301, 302):
+            if response.status_code == 200:
                 profile_url = f"https://gravatar.com/{email_hash}"
                 avatar_url = f"https://www.gravatar.com/avatar/{email_hash}"
                 
