@@ -19,7 +19,7 @@ class Config:
             "timeout": 10,
             "rate_limit": 1.0,
             "user_agent": "DigTool/1.0 (OSINT Scanner)",
-            "modules": ["gravatar", "site_template"],
+            "modules": ["gravatar", "adobe", "site_template"],
             "max_workers": 5,
             "verbose": False
         }
