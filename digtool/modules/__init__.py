@@ -6,5 +6,6 @@ from digtool.modules.site_template import SiteTemplateModule
 def get_all_modules() -> Dict[str, Type[BaseModule]]:
     return {
         "gravatar": GravatarModule,
+        "adobe": AdobeModule,
         "site_template": SiteTemplateModule
     }
