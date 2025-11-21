@@ -21,7 +21,7 @@ class GravatarModule(BaseModule):
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
             }
             response = requests.get(check_url, headers=headers, timeout=self.timeout)
-            
+            print(response.status_code)
             self.rate_limit_sleep()
             
             # Code 200 = Gravatar existe
