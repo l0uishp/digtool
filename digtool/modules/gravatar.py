@@ -13,7 +13,7 @@ class GravatarModule(BaseModule):
             email_hash = hashlib.md5(email_clean.encode()).hexdigest()
             
             # Utiliser d=404 pour obtenir un 404 si pas de Gravatar
-            check_url = f"https://www.gravatar.com/avatar/{email_hash}?d=404"
+            check_url = f"https://www.gravatar.com/{email_hash}?d=404"
             
             headers = {"User-Agent": self.user_agent}
             response = requests.get(check_url, headers=headers, timeout=self.timeout, allow_redirects=False)
