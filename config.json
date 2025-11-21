@@ -1,0 +1,11 @@
+{
+  "user_agent": "DigTool/1.0 (+https://example.com) Python-requests",
+  "timeout_seconds": 10,
+  "rate_limit_seconds": 0.5,
+  "modules": [
+    "gravatar",
+    "site_template"
+  ],
+  "max_workers": 4,
+  "verbose": false
+}
