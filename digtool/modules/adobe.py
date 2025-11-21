@@ -13,9 +13,21 @@ class AdobeModule(BaseModule):
         
         url = "https://auth.services.adobe.com/signin/v2/users/accounts"
         headers = {
-            "User-Agent": self.user_agent,
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                          "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0",
+            "Accept": "application/json, text/plain, */*",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
             "Content-Type": "application/json",
-            "Accept": "application/json"
+            "Origin": "https://auth.services.adobe.com",
+            "Referer": "https://auth.services.adobe.com/en_US/index.html#/",
+            "Connection": "keep-alive",
+            "Sec-Fetch-Site": "same-origin",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Dest": "empty",
+            "Sec-CH-UA": '"Chromium";v="120", "Not A(Brand";v="24", "Microsoft Edge";v="120"',
+            "Sec-CH-UA-Mobile": "?0",
+            "Sec-CH-UA-Platform": '"Windows"'
         }
         payload = {
             "username": email,
