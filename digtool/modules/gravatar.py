@@ -32,30 +32,21 @@ class GravatarModule(BaseModule):
                 
                 self.logger.info(f"[Gravatar] Found profile for {email}")
                 
-                # Essayer de récupérer plus d'infos depuis le profil JSON
-                try:
-                    profile_json_url = f"https://gravatar.com/{email_hash}.json"
-                    profile_response = requests.get(profile_json_url, headers=headers, timeout=self.timeout)
-                    
-                    if profile_response.status_code == 200:
-                        profile_data = profile_response.json()
-                        entry = profile_data.get('entry', [{}])[0]
+                profile_data = response.json()
+                entry = profile_data.get('entry', [{}])[0]
                         
-                        return {
-                            "found": True,
-                            "data": {
-                                "profile_url": profile_url,
-                                "avatar_url": avatar_url,
-                                "display_name": entry.get('displayName'),
-                                "username": entry.get('preferredUsername'),
-                                "location": entry.get('currentLocation'),
-                                "profile_background": entry.get('profileBackground', {}).get('url'),
-                                "accounts": [acc.get('url') for acc in entry.get('accounts', [])]
-                            }
-                        }
-                except:
-                    pass
-                
+                return {
+                    "found": True,
+                    "data": {
+                        "profile_url": profile_url,
+                        "avatar_url": avatar_url,
+                        "display_name": entry.get('displayName'),
+                        "username": entry.get('preferredUsername'),
+                        "location": entry.get('currentLocation'),
+                        "profile_background": entry.get('profileBackground', {}).get('url'),
+                        "accounts": [acc.get('url') for acc in entry.get('accounts', [])]
+                    }
+                }
                 # Si pas de JSON, retourner infos basiques
                 return {
                     "found": True,
