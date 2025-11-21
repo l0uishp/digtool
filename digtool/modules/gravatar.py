@@ -15,7 +15,7 @@ class GravatarModule(BaseModule):
             email_hash = hashlib.md5(email_clean.encode()).hexdigest()
 
             # URLs
-            check_url = f"https://www.gravatar.com/avatar/{email_hash}?d=404"
+            check_url = f"https://www.gravatar.com/{email_hash}?d=404"
             profile_url = f"https://gravatar.com/{email_hash}"
             profile_json_url = f"https://gravatar.com/{email_hash}.json"
 
