@@ -9,7 +9,7 @@ class GravatarModule(BaseModule):
         
         try:
             email_hash = hashlib.md5(email.lower().encode()).hexdigest()
-            url = f"https://www.gravatar.com/avatar/{email_hash}?d=404"
+            url = f"https://www.gravatar.com/{email_hash}?d=404"
             
             headers = {"User-Agent": self.user_agent}
             response = requests.get(url, headers=headers, timeout=self.timeout)
