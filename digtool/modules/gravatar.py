@@ -26,7 +26,7 @@ class GravatarModule(BaseModule):
             
             # Code 200 = Gravatar existe
             # Code 404 = Pas de Gravatar
-            if response.status_code == 200:
+            if response.status_code in (200, 302):
                 profile_url = f"https://gravatar.com/{email_hash}"
                 avatar_url = f"https://www.gravatar.com/avatar/{email_hash}"
                 
