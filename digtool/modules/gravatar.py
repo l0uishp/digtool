@@ -15,7 +15,10 @@ class GravatarModule(BaseModule):
             # Utiliser d=404 pour obtenir un 404 si pas de Gravatar
             check_url = f"https://www.gravatar.com/{email_hash}?d=404"
             
-            headers = {"User-Agent": self.user_agent}
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", 
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
             response = requests.get(check_url, headers=headers, timeout=self.timeout, allow_redirects=False)
             
             self.rate_limit_sleep()
