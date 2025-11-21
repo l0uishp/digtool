@@ -25,7 +25,7 @@ class AdobeModule(BaseModule):
         }
         payload = {
             "username": email,
-            "accountType" : "individual"
+            "usernameType":"EMAIL"
         }
         
         try:
